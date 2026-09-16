@@ -645,55 +645,142 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 /* =========================================================
-   HEADER - RESPONSIVE
+   IMMPL HEADER - FINAL FIX
    ========================================================= */
 
 .header-inner {
+  height: var(--nav-h);
   display: flex;
   align-items: center;
   gap: 28px;
+  width: 100%;
 }
 
 .site-header .brand {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  margin-right: auto;
 }
 
-.site-header .brand-logo {
+/* IMMPL logo */
+.site-header .brand-mark {
   display: block;
-  width: auto;
-  height: 32px;
+  width: 150px;
+  height: 50px;
+  background-image: url("immpl-logo-dark.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  flex-shrink: 0;
 }
 
-.main-nav {
+/* Navigation */
+.site-header .main-nav {
   display: flex;
   align-items: center;
   gap: 22px;
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
-.main-nav a {
+.site-header .main-nav a {
   white-space: nowrap;
 }
 
-.header-cta {
+/* CTA */
+.site-header .header-cta {
   flex: 0 0 auto;
 }
 
-/* Switch to mobile navigation before the header gets too crowded */
-@media (max-width: 1150px) {
-  .main-nav {
+/* Mobile menu button */
+.site-header .nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+}
+
+.site-header .nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink-900);
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   Keep the CTA. Collapse navigation before it gets crushed.
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .site-header .main-nav {
     display: none;
   }
 
-  .nav-toggle {
-    display: flex;
-    flex: 0 0 auto;
-  }
-
-  .header-cta {
+  .site-header .header-cta {
     margin-left: auto;
   }
+
+  .site-header .nav-toggle {
+    display: flex;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .header-inner {
+    height: 72px;
+    gap: 12px;
+  }
+
+  .site-header .brand-mark {
+    width: 130px;
+    height: 42px;
+  }
+
+  .site-header .header-cta {
+    display: none;
+  }
+
+  .site-header .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .site-header .main-nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 20px 20px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+  }
+
+  .site-header .main-nav.is-open {
+    display: flex;
+  }
+
+  .site-header .main-nav a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
 }
