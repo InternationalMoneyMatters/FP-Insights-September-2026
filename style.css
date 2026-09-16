@@ -112,6 +112,13 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   gap: 10px;
   margin-right: 0;
 }
+.brand-logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  max-width: 120px;
+  flex-shrink: 0;
+}
 /* Full IMMPL logo lockup (exact uploaded PNG, transparent bg) — aspect ratio 890:298 */
 .brand-mark {
   display: inline-block;
