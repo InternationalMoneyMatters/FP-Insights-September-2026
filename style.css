@@ -104,7 +104,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 .brand {
   display: flex;
@@ -137,10 +137,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
 }
 .main-nav a {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink-500);
   padding: 6px 2px;
